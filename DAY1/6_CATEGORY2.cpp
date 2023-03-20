@@ -30,10 +30,19 @@ int main()
 	std::reverse(v.begin(), v.end()); 
 						// => 양방향 반복자
 
-	std::reverse(s1.begin(), s1.end()); // error
+//	std::reverse(s1.begin(), s1.end()); // error
 					// reverse 는 양방향 반복자 요구
 					// 싱글리스트 반복자는 전진형 반복자
 					// 요구 조건 충족할수 없음.
 
 	std::reverse(s2.begin(), s2.end()); // ok
+
+	//----------------------
+
+	std::sort(v.begin(), v.end()); // 퀵소트 입니다.
+								// 인자의 최소 요구 조건은 ?
+								// 임의 접근 반복자만 가능!!
+
+	std::sort(s2.begin(), s2.end()); // list 반복자 전달
+									// error.
 }
