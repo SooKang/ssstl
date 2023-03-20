@@ -13,8 +13,11 @@
 
 // cppreference.com 에 접속해 보세요.  오른쪽 위에서 std::find 검색
 
-template<typename T1, typename T2>
-T1 find(T1 first, T1 last, T2 c)
+// 반복자는 크기가 크지 않습니다. "call by value" 로 받으세요
+// 찾는 요소는 사용자 정의 타입일수 있습니다 : const T& 로 받으세요
+
+template<typename InputIter, typename T>
+InputIter find(InputIter first, InputIter last, const T& c)
 {
 	while (first != last && *first != c)
 		++first;
@@ -24,5 +27,5 @@ T1 find(T1 first, T1 last, T2 c)
 
 int main()
 {
-
+	find()
 }
