@@ -21,8 +21,11 @@ int main()
 //	std::reverse_iterator< std::list<int>::iterator > p4(p1);
 
 	// 함수 버전을 사용하면 타입을 명시할 필요가 없습니다.
-	auto p3 = std::make_reverse_iterator(p2);
-	auto p4 = std::make_reverse_iterator(p1);
+//	auto p3 = std::make_reverse_iterator(p2);
+//	auto p4 = std::make_reverse_iterator(p1);
+
+	auto p3 = s.rbegin(); // std::make_reverse_iterator(s.end());
+	auto p4 = s.rend();   // std::make_reverse_iterator(s.begin());
 
 	while (p3 != p4)
 	{
