@@ -10,6 +10,10 @@ int main()
 
 	// s1에서 짝수를 0으로 변경한 결과를 s2에 넣어 보세요
 
+	std::replace_copy_if(s1.begin(), s1.end(), 
+					 std::back_inserter(s2), 
+					[](int n) { return n % 2 == 0; }, 0);
+
 
 	show(s1); // 1,2,3,4,5,6,7,8,9,10
 	show(s2); // 1,0,3,0,5,0,7,0,9,0
