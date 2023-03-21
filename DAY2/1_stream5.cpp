@@ -11,10 +11,10 @@ void show(const Container& c)
 }
 
 // 반복자 버전
-template<typename T>
-void show(T first, T last)
+template<typename InputIter>
+void show(InputIter first, InputIter last)
 {
-	std::ostream_iterator< ? > p(std::cout, ", ");
+	std::ostream_iterator< typename std::iterator_traits<InputIter>::value_type > p(std::cout, ", ");
 
 	std::copy(first, last, p);
 
