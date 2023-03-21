@@ -22,12 +22,16 @@ int main()
 {
 	std::vector<int> v = { 1,2,3,1,2,3,1,2,3,1 };
 
+	/*
 	auto p = std::remove(v.begin(), v.end(), 3);
-
 	show(v);  
-
 	v.erase(p, v.end());
 	show(v);
+	*/
+
+	// 보통 위코드를 아래 처럼 작성합니다.
+
+	v.erase(std::remove(v.begin(), v.end(), 3), v.end());
 
 	return 0;
 }
