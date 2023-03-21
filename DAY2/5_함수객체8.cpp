@@ -6,26 +6,31 @@ int main()
 {
 	std::vector<int> v = { 1,3,2 };
 
-	// 다음중 좋은 코드는 ?
-	// 1. std::less 사용
+	// 기본 버전 : 오름 차순 정렬
+	std::sort(v.begin(), v.end());
+
+	// 비교 정책 교체 1. 일반 함수
+//	std::sort(v.begin(), v.end(), cmp1);  
+
+
+	// 비교 정책 교체 2. C++ 표준의 함수 객체 사용 - C++98 시절 부터
 	std::less<int> f;
 	std::sort(v.begin(), v.end(), f);
-	std::sort(v.begin(), v.end(), f);
+
+	std::sort(v.begin(), v.end(), std::less<int>() ); // 임시객체로 전달
 
 
-	// 2. 람다 표현식 사용
-	// => 모든 람다 표현식은 다른 타입 입니다.
-	// => 아래 처럼 동일한 람다표현식을 사용해도 다른 타입입니다.
-	// => sort() 함수가 2개 생성됩니다.
-	std::sort(v.begin(), v.end(), [](int a, int b) { return a < b; });
-	std::sort(v.begin(), v.end(), [](int a, int b) { return a < b; });
+	// 비교 정책 교체 3. 람다 표현식 - C++11 부터
+	std::sort(v.begin(), v.end(), [](int a, int b) { return a < b; } );
 
+	// 위 코드를 보고 컴파일러는 아래 코드를 생성합니다.
+	class CompilerGeneratedName
+	{
+	public:
+		inline bool operator()(int a, int b) { return a < b; }
+	};
 
-	// 핵심 : 동일한 람다표현식이 여러번 사용되면 auto 변수에 담아서 사용하세요
-	auto cmp = [](int a, int b) { return a < b; };
-				// class xxx { operator ()}; xxx(); 즉 cmp 는 xxx 타입객체
+	std::sort(v.begin(), v.end(), CompilerGeneratedName() );
 
-	std::sort(v.begin(), v.end(), cmp);
-	std::sort(v.begin(), v.end(), cmp); // ok.. sort 는 한개
-
+	// 핵심 : 람다 표현식은 "함수객체"를 컴파일러에게 만들어 달라는 요청.
 }
