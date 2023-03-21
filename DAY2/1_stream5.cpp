@@ -1,11 +1,14 @@
 #include <iostream> 
 #include <iterator>
 #include <list>
+#include "show.h"  // 아래 2개의 show 함수가 이미 만들어져 있습니다.
+
+/*
 template<typename Container>
 void show(const Container& c)
 {
 	for (auto e : c)
-		std::cout << e << ",";
+		std::cout << e << ", ";
 
 	std::cout << std::endl;
 }
@@ -20,7 +23,7 @@ void show(InputIter first, InputIter last)
 
 	std::cout << std::endl; 
 }
-
+*/
 
 int main()
 {
