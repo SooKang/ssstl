@@ -2,7 +2,7 @@
 #include "show.h"
 #include <thread>
 #include <chrono>
-using std::literals;
+using namespace sstd::literals;
 
 void foo(int n)
 {
