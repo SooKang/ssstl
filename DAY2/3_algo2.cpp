@@ -30,8 +30,10 @@ int main()
 	*/
 
 	// 보통 위코드를 아래 처럼 작성합니다.
-
+	// => 흔히 "erase-remove" 라고 불리는 기법입니다.
 	v.erase(std::remove(v.begin(), v.end(), 3), v.end());
+
+	show(v);
 
 	return 0;
 }
