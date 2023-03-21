@@ -1,14 +1,5 @@
-// 3_ÇÔ¼ö°´Ã¼4 -  137 page Á¦ÀÏ À­ºÎºĞ³»¿ë
-       int Add1(int a, int b) { return a + b; }
-inline int Add2(int a, int b) { return a + b; }
-
-int main()
-{
-	int n1 = Add1(1, 2); 
-	int n2 = Add2(1, 2); 
-
 	int(*f)(int, int) = &Add2;
 
-	f(1, 2); // ?
-}
+	if (ì‚¬ìš©ì ì…ë ¥ == 1) f = &Add1;
 
+	f(1, 2); 
