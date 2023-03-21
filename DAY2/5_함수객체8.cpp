@@ -32,5 +32,5 @@ int main()
 
 	std::sort(v.begin(), v.end(), CompilerGeneratedName() );
 
-
+	// 핵심 : 람다 표현식은 "함수객체"를 컴파일러에게 만들어 달라는 요청.
 }
