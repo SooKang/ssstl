@@ -4,9 +4,10 @@
 // 함수 객체는 
 // => 동작뿐 아니라 상태를 가질수 있습니다.( 멤버 데이타가 있다는의미)
 
+template<int N = 10>
 class URandom
 {
-	std::bitset<10> bs;
+	std::bitset<N> bs;
 	bool recycle;
 public:
 	URandom(bool b = false) : recycle(b)
@@ -26,28 +27,25 @@ public:
 
 		int k = -1;
 
-		while ( !bs.test(k = rand() % 10) );
+		while ( !bs.test(k = rand() % N) );
 
 		bs.reset(k);
 
 		return k;
 	}
+
+	int remain_count() { return bs.count(); } // 1의 갯수
 };
 
-URandom urand;
-
-
-
-
-
-
-
-
+//URandom urand;
+URandom<100> urand(true);
 
 int main()
 {
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 15; i++)
 		std::cout << urand() << std::endl;
+
+	std::cout << urand.remain_count() << std::endl;
 }
 
 
