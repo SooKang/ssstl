@@ -3,6 +3,8 @@
 #include <functional>
 #include <iterator>
 #include <algorithm>
+#include <list>
+#include <vector>
 
 template<typename Container> void show(Container&& c)
 {
