@@ -1,15 +1,38 @@
-// STL ÄÁÅ×ÀÌ³ÊÀÇ Æ¯Â¡
+#include "show.h"
 
-std::list<int> s = { 1,2,3 };
+template<typename T, typename Alloc = std::allocator<T>>
+class list
+{
+public:
+	// í•µì‹¬ : STL ì»¨í…Œì´ë„ˆëŠ” ë‹¤ì–‘í•œ ë©¤ë²„ íƒ€ì…ì´ ìˆìŠµë‹ˆë‹¤.
+	using size_type = unsigned int;
+	using value_type = T;
+	using pointer = T*;
+	using iterator = list_iterator<T>;
+	//....
+};
 
-// 1. ¸â¹ö Å¸ÀÔÀÌ ÀÖ´Ù.
-std::list<int>::value_type n = s.front();
-std::list<int>::size_type    = s.size();
+int main()
+{
+	// STL ì»¨í…Œì´ë„ˆì˜ íŠ¹ì§•
+	std::list<int> s = { 1,2,3 };
 
-// 2. ¹İÈ¯°ú Á¦°Å¸¦ µ¿½Ã¿¡ ÇÏÁö ¾Ê´Â´Ù.
-int n = s.back();	// ¹İÈ¯¸¸. Á¦°ÅµÇÁö ¾Ê´Â´Ù.
-s.pop_back();		// Á¦°Å¸¸ ÇÑ´Ù. ¹İÈ¯ Å¸ÀÔÀº void
+	// ì•„ë˜ ? ìë¦¬ì— ìµœì„ ì˜ ì½”ë“œëŠ” ë­˜ê¹Œìš” ? auto ë§ê³ 
+//	unsigned int sz = s.size();
+//	std::list<int>::size_type sz = s.size();
 
-// 3. ´ÜÀ§ Àü·«À» ¸¹ÀÌ »ç¿ëÇÑ´Ù.
-std::list<int, MyAlloc<int>> s2;
-std::set<int, greater<int>, MyAlloc<int>> ss;
+	// 1. ë©¤ë²„ íƒ€ì…ì´ ìˆë‹¤.
+	std::list<int>::value_type n = s.front();
+	std::list<int>::size_type sz = s.size();
+
+
+	// 2. ë°˜í™˜ê³¼ ì œê±°ë¥¼ ë™ì‹œì— í•˜ì§€ ì•ŠëŠ”ë‹¤.
+	// => ì˜ˆì™¸ ì•ˆì „ì„±ì˜ ê°•ë ¥ ë³´ì¥ì„ ì§€í‚¤ë ¤ë©´ ì´ë ‡ê²Œ ì„¤ê³„í• ìˆ˜ ë°–ì— ì—†ë‹¤.
+	int n = s.back();	// ë°˜í™˜ë§Œ. ì œê±°ë˜ì§€ ì•ŠëŠ”ë‹¤.
+	s.pop_back();		// ì œê±°ë§Œ í•œë‹¤. ë°˜í™˜ íƒ€ì…ì€ void
+
+
+	// 3. ë‹¨ìœ„ ì „ëµì„ ë§ì´ ì‚¬ìš©í•œë‹¤.
+	std::list<int, MyAlloc<int>> s2;
+	std::set<int, greater<int>, MyAlloc<int>> ss;
+}
