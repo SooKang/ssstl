@@ -4,7 +4,7 @@
 #include <algorithm>
 #include "show.h"
 
-// ÄÁÅ×ÀÌ³Ê¸¦ º¸°üÇÏ´Â ÄÁÅ×ÀÌ³Ê
+// ì»¨í…Œì´ë„ˆë¥¼ ë³´ê´€í•˜ëŠ” ì»¨í…Œì´ë„ˆ
 
 int main()
 {
@@ -13,7 +13,16 @@ int main()
 
 	std::vector<std::vector<int>> v2(10, std::vector<int>(10));
 	
+	v2[0][0] = 10;
+
 
 	std::vector<std::list<int>> v3(10);
+
+	v3[0].push_back(1);
+	v3[0].push_back(2);
+
+	v3[1].push_back(10);
+	v3[1].push_back(20);
+
 	
 }
