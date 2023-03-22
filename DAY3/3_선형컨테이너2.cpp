@@ -15,7 +15,7 @@ int main()
 	std::vector<int> v6 = { 10, 3 }; // 위와 동일
 	std::vector<int> v4(v3);	// v3과 동일한 vector
 
-//	std::list<int> s1(v3); // v3과 동일한 list // ??
+//	std::list<int> s1(v3); // error
 	std::list<int> s1(v3.begin(), v3.end());
 	std::list<int> s2(v3.begin(), v3.begin() + 2);
 
